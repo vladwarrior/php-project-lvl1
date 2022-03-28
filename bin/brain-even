@@ -22,14 +22,16 @@ for ($i = 0; $i <= 3; $i++) {
       if ($result == 'yes') {
       print_r("Correct!\n");
     } else {
-      print_r("'yes' is wrong answer ;(. Correct answer was 'no'.");
+      print_r("'yes' is wrong answer ;(. Correct answer was 'no'.\n");
+      print_r("Let's try again, " . $name . "!\n");
       break;
     }
   } else {
     if ($result == 'no') {
       print_r("Correct!\n");
     } else {
-      print_r("'yes' is wrong answer ;(. Correct answer was 'no'.");
+      print_r("'yes' is wrong answer ;(. Correct answer was 'no'.\n");
+      print_r("Let's try again, " . $name . "!\n");
       break;
     }
   }
