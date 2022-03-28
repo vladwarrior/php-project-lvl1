@@ -1,0 +1,36 @@
+#!/usr/bin/env php
+<?php
+
+
+echo "Welcome to the Brain Games!\n";
+echo "May I have your name? ";
+$name = trim(fgets(STDIN));
+print_r("Hello, " . $name . "!\n");
+echo "Answer 'yes' if the number is even, otherwise answer 'no'.\n";
+
+
+for ($i = 0; $i <= 3; $i++) {
+    $value = rand(0, 20);
+    if ($i === 3) {
+      print_r("Congratulations, " . $name . "!");
+      break;
+    }
+    print_r("Question: " . $value . "\n");
+    print_r("Your answer: ");
+    $result = trim(fgets(STDIN));
+    if (($value % 2) == 0) {
+      if ($result == 'yes') {
+      print_r("Correct!\n");
+    } else {
+      print_r("'yes' is wrong answer ;(. Correct answer was 'no'.");
+      break;
+    }
+  } else {
+    if ($result == 'no') {
+      print_r("Correct!\n");
+    } else {
+      print_r("'yes' is wrong answer ;(. Correct answer was 'no'.");
+      break;
+    }
+  }
+}
