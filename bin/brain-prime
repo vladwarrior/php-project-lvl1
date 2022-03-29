@@ -2,10 +2,10 @@
 <?php
 
 echo "Welcome to the Brain Games!\n";
-echo "May I have your name?\n";
+echo "May I have your name? ";
 $name = trim(fgets(STDIN));
-print_r("Hello, " . $name);
-echo "Answer 'yes' if given number is prime. Otherwise answer 'no'. ";
+print_r("Hello, " . $name . "!\n");
+echo 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
 
 function isPrime($num)
@@ -21,7 +21,7 @@ function isPrime($num)
 for ($l = 0; $l < 3; $l++) {
 
 $value = rand(0, 20);
-print_r("Question: " . $value . " ");
+print_r("\nQuestion: " . $value . "\n");
 $simple = isPrime($value);
 print_r("Your answer:");
 $res = trim(fgets(STDIN));
@@ -39,7 +39,7 @@ if ($res == 'yes') {
         print_r("Let's try again, " . $name . "!\n");
         return;
     } else {
-        print_r("Correct!");
+        print_r("Correct!\n");
     }
 }
 if($l == 2) {
