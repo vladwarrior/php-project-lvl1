@@ -1,0 +1,38 @@
+#!/usr/bin/env php
+<?php
+
+echo "Welcome to the Brain Games!";
+echo "May I have your name?";
+$name = trim(fgets(STDIN));
+print_r("Hello, " . $name . "!");
+echo "What is the result of the expression? ";
+$arrOperation = ['+', '-', '*'];
+
+for ($i = 0; $i < 3; $i++) {
+    $a = rand(-20, 20);
+    $b = rand(-20, 20);
+    $oper = $arrOperation[array_rand($arrOperation)];
+    print_r("Question: " . "(" . $a . ")" . " " . $oper . " " . "(" .$b . ")" . " ");
+    print_r("Your answer: ");
+    $res = trim(fgets(STDIN));
+
+    switch ($oper) {
+        case '+':
+            $c = $a + $b; break;
+        case '-':
+            $c = $a - $b; break;      
+        case '*':
+            $c = $a * $b; break;
+        }
+
+    if ($c == $res) {
+        print_r("Correct!");
+    } else {
+        print_r("{$res} is wrong answer ;(. Correct answer was {$c}.");
+        return;
+    }
+    if($i == 2) {
+        print_r("Congratulations, {$name}!");
+    }
+}
+
