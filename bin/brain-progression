@@ -1,8 +1,8 @@
 #!/usr/bin/env php
 <?php
 
-echo "Welcome to the Brain Games!";
-echo "May I have your name?";
+echo "Welcome to the Brain Games!\n";
+echo "May I have your name?\n";
 $name = trim(fgets(STDIN));
 print_r("Hello, " . $name);
 echo "What number is missing in the progression? ";
