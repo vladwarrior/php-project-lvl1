@@ -1,18 +1,18 @@
 #!/usr/bin/env php
 <?php
 
-echo "Welcome to the Brain Games!";
-echo "May I have your name?";
+echo "Welcome to the Brain Games!\n";
+echo "May I have your name? ";
 $name = trim(fgets(STDIN));
-print_r("Hello, " . $name . "!");
-echo "What is the result of the expression? ";
+print_r("Hello, " . $name . "!\n");
+echo "What is the result of the expression?\n";
 $arrOperation = ['+', '-', '*'];
 
 for ($i = 0; $i < 3; $i++) {
-    $a = rand(-20, 20);
-    $b = rand(-20, 20);
+    $a = rand(0, 20);
+    $b = rand(0, 20);
     $oper = $arrOperation[array_rand($arrOperation)];
-    print_r("Question: " . "(" . $a . ")" . " " . $oper . " " . "(" .$b . ")" . " ");
+    print_r("Question: " . $a . " " . $oper . " " . $b . " \n");
     print_r("Your answer: ");
     $res = trim(fgets(STDIN));
 
@@ -26,9 +26,10 @@ for ($i = 0; $i < 3; $i++) {
         }
 
     if ($c == $res) {
-        print_r("Correct!");
+        print_r("Correct!\n");
     } else {
-        print_r("{$res} is wrong answer ;(. Correct answer was {$c}.");
+        print_r("'{$res}' is wrong answer ;(. Correct answer was '{$c}'.");
+        print_r("Let's try again, " . $name . "!\n");
         return;
     }
     if($i == 2) {
