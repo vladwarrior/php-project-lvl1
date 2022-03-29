@@ -1,0 +1,43 @@
+#!/usr/bin/env php
+<?php
+
+echo "Welcome to the Brain Games!";
+echo "May I have your name?";
+$name = trim(fgets(STDIN));
+print_r("Hello, " . $name);
+echo "What number is missing in the progression? ";
+
+for ($l = 0; $l < 3; $l++) {
+$c = rand(5, 10);
+$step = rand(1, 4);
+$start = rand(1, 10);
+$arr = [$c];
+$arr[0] = $start;
+for ($i = $start, $k = 1; $k < $c; $k++, $i += $step) {
+    $arr[$k] = $i + $step;
+}
+
+$hiddenElem = rand(0, $c - 1);
+$hiddenIndex = 0;
+print_r("Question: ");
+for ($j = 0; $j < $c; $j++) {
+    if ($j == $hiddenElem) {
+        print_r(".. ");
+        $hiddenIndex = $j;
+        continue;
+    }
+    print_r($arr[$j] . " ");
+}
+print_r("Your answer: ");
+$res = trim(fgets(STDIN));
+
+if ($arr[$hiddenIndex] == $res) {
+    print_r("Correct!");
+} else {
+    print_r("{$res} is wrong answer ;(. Correct answer was {$arr[$hiddenIndex]}.");
+    return;
+}
+if($l == 2) {
+    print_r("Congratulations, {$name}!");
+}
+}
