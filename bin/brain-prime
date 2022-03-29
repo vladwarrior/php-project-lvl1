@@ -1,0 +1,29 @@
+#!/usr/bin/env php
+<?php
+
+echo "Welcome to the Brain Games!\n";
+echo "May I have your name?\n";
+$name = trim(fgets(STDIN));
+print_r("Hello, " . $name);
+echo "Answer 'yes' if given number is prime. Otherwise answer 'no'. ";
+
+$value = rand(0, 20);
+print_r("Question: " . $value . " ");
+$simple = gmp_prob_prime($value);
+print_r("Your answer:");
+$res = trim(fgets(STDIN));
+if ($res == 'yes') {
+    if ($simple == 2) {
+        print_r("Correct!\n");
+    } else {
+        print_r("{$res} is wrong answer ;(. Correct answer was 'no'.\n");
+        print_r("Let's try again, " . $name . "!\n");
+    }
+} elseif ($res == 'no') {
+    if ($simple == 2) {
+        print_r("{$res} is wrong answer ;(. Correct answer was 'yes'.\n");
+        print_r("Let's try again, " . $name . "!\n");
+    } else {
+        print_r("Correct!");
+    }
+}
