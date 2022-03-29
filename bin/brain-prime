@@ -7,9 +7,22 @@ $name = trim(fgets(STDIN));
 print_r("Hello, " . $name);
 echo "Answer 'yes' if given number is prime. Otherwise answer 'no'. ";
 
+
+function isPrime($num)
+{
+    for ($i = 2; $i <= sqrt($num); $i++) {
+        if (!($num % $i)) {
+            return false;
+        }
+    }
+    return true;
+}
+
+for ($l = 0; $l < 3; $l++) {
+
 $value = rand(0, 20);
 print_r("Question: " . $value . " ");
-$simple = gmp_prob_prime($value);
+$simple = isPrime($value);
 print_r("Your answer:");
 $res = trim(fgets(STDIN));
 if ($res == 'yes') {
@@ -18,12 +31,20 @@ if ($res == 'yes') {
     } else {
         print_r("{$res} is wrong answer ;(. Correct answer was 'no'.\n");
         print_r("Let's try again, " . $name . "!\n");
+        return;
     }
 } elseif ($res == 'no') {
     if ($simple == 2) {
         print_r("{$res} is wrong answer ;(. Correct answer was 'yes'.\n");
         print_r("Let's try again, " . $name . "!\n");
+        return;
     } else {
         print_r("Correct!");
     }
 }
+if($l == 2) {
+    print_r("Congratulations, {$name}!");
+}
+}
+
+
