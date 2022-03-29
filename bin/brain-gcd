@@ -1,0 +1,28 @@
+#!/usr/bin/env php
+<?php
+
+echo "Welcome to the Brain Games!\n";
+echo "May I have your name?\n";
+$name = trim(fgets(STDIN));
+print_r("Hello, " . $name . "!\n");
+echo "Find the greatest common divisor of given numbers.\n";
+
+for ($i = 0; $i < 3; $i++) {
+    $a = rand(0, 50);
+    $b = rand(0, 50);
+    print_r("Question: " . $a . " " . $b . " \n");
+    print_r("Your answer: ");
+    $res = trim(fgets(STDIN));
+    $gcd = gmp_gcd($a, $b);
+    if ($gcd == $res) {
+        print_r("Correct!\n ");
+    } else {
+        print_r("'{$res}' is wrong answer ;(. Correct answer was '{$gcd}'.\n");
+        print_r("Let's try again, " . $name . "!\n");
+        return;
+    }
+    if($i == 2) {
+        print_r("Congratulations, {$name}!");
+    }
+}
+
