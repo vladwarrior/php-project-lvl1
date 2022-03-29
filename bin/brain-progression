@@ -35,6 +35,7 @@ if ($arr[$hiddenIndex] == $res) {
     print_r("Correct!");
 } else {
     print_r("{$res} is wrong answer ;(. Correct answer was {$arr[$hiddenIndex]}.");
+    print_r("Let's try again, " . $name . "!\n");
     return;
 }
 if($l == 2) {
