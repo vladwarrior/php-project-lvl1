@@ -1,6 +1,34 @@
 #!/usr/bin/env php
 <?php
 
+//const PROMPT_TEXT = 'Find the greatest common divisor of given numbers.';
+
+function calcGcd($value1, $value2)
+{
+    if ($value2 == 0) {
+        return $value1;
+    }
+
+    return calcGcd($value2, $value1 % $value2);
+}
+
+// $getGameData = function () {
+        
+//     $value1 = rand(1, 100);
+//     $value2 = rand(1, 100);
+    
+//     $question = "{$value1} gcd {$value2}";
+//     $answer = calcGcd($value1, $value2);
+
+//     return [$question, $answer];
+// };
+
+// startGame(PROMPT_TEXT, $getGameData);
+
+
+
+
+
 echo "Welcome to the Brain Games!\n";
 echo "May I have your name?\n";
 $name = trim(fgets(STDIN));
@@ -13,16 +41,16 @@ for ($i = 0; $i < 3; $i++) {
     print_r("Question: " . $a . " " . $b . " \n");
     print_r("Your answer: ");
     $res = trim(fgets(STDIN));
-    $gcd = gmp_gcd($a, $b);
+    $gcd = calcGcd($a, $b);
     if ($gcd == $res) {
-        print_r("Correct!\n ");
+        print_r("Correct!\n");
     } else {
         print_r("'{$res}' is wrong answer ;(. Correct answer was '{$gcd}'.\n");
         print_r("Let's try again, " . $name . "!\n");
         return;
     }
     if($i == 2) {
-        print_r("Congratulations, {$name}!");
+        print_r("Congratulations, {$name}!\n");
     }
 }
 
